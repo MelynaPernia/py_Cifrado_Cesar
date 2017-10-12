@@ -47,23 +47,23 @@ function cipher(text,number){
 
 //Creando una funcion decipher con 2 parametros
 function decipher(encryptedText,number){
-  //Creando una variable decryptMessage vacía, que va acumular cada letra decifrada.
+  //Creando una variable decryptText vacía, que va acumular cada letra decifrada.
   var decryptText = "";
   //Creando un ciclo for para recorrer cada letra del texto cifrado
   for(var j=0;j < encryptedText.length ;j++){
     //Si la letra cifrado en la posicion i convertida en codigo ASCCI esta entre el intervalo de 65 y 90
     //indica que es mayuscula
     if(encryptedText.charCodeAt(j)>=65 && encryptedText.charCodeAt(j)<=90){
-      //Acumula en la variable decryptMessage cada letra cifrada en mayúscula
+      //Acumula en la variable decryptText cada letra cifrada en mayúscula
         decryptText += String.fromCharCode((encryptedText.charCodeAt(j)+ 65 - number)%26 + 65);
         /*Si la letra no esta en intervalo de 65 y 90 caso contrario está en el intervalo de 97 y 122
         nos indica que es una letra minúscula*/
     } else if(encryptedText.charCodeAt(j)>=97 && encryptedText.charCodeAt(j)<=122){
-      //Se va acumulando en la variable decryptMessage cada letra decifrada en minúscula
+      //Se va acumulando en la variable decryptText cada letra decifrada en minúscula
         decryptText += String.fromCharCode((encryptedText.charCodeAt(j)+ 97 + number)%26 + 97);
         //Si la letra de la posicion i en código ASCII es exactamente igual a 32
     }else if (encryptedText.charCodeAt(j)===32){
-      //En la variable decryptMessage que es un acumulador guarda un espacio vacío.
+      //En la variable decryptText que es un acumulador guarda un espacio vacío.
                decryptText +=" ";
 
     }
